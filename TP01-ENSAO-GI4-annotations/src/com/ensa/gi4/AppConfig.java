@@ -23,19 +23,19 @@ public class AppConfig {
         return new AllocationMaterielServiceImpl();
     }
     
-//    @Bean 
-//    ListMateriel listMaterielBean() {
-//    	return new ListMaterielImpl();
-//    }
-//    
-//    @Bean 
-//    //@Lazy
-//    MaterielDao MaterielDaoBean(ListMateriel listMaterielBean) {
-//    	return new MaterielDaoImpl(listMaterielBean);
-//    }
+    @Bean 
+    ListMateriel listMaterielBean() {
+    	return new ListMaterielImpl();
+    }
+    
+    @Bean 
+    @Lazy
+    MaterielDao MaterielDaoBean(ListMateriel listMaterielBean) {
+    	return new MaterielDaoImpl(listMaterielBean);
+    }
     
     @Bean
-    //@Lazy
+    @Lazy
     public GestionMaterielController gestionMaterielControllerBean(GestionMaterielService gestionMaterielServiceBean, AllocationMaterielService AllocationMaterielServiceBean){
         return new GestionMaterielController(gestionMaterielServiceBean, AllocationMaterielServiceBean);
    }
